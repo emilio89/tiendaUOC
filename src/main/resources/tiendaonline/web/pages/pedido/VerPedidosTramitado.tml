@@ -1,0 +1,158 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">${message:menuExplanation}</h3>
+
+				<section class="sky-form">
+					<label style="margin-top: 30px; float:left;">Filtar pedidos por estado:</label>
+
+					<form t:type="form" t:id="myForm">
+						<t:RadioGroup t:id="valueForMyBoolean">
+							<t:if test="!tramitacion">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;">
+									<t:Radio t:id="radioT" value="literal:T" label="Tramitacion"
+										onclick="this.form.submit()" />
+									<t:label for="radioT" />
+								</label>
+							</t:if>
+							<t:if test="tramitacion">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;background: none repeat scroll 0% 0% #E74C3C;">Tramitacion</label>
+							</t:if>
+							<t:if test="!creado">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;">
+									<t:Radio t:id="radioC" value="literal:C" label="Creado"
+										onclick="this.form.submit()" />
+									<t:label for="radioC" />
+								</label>
+							</t:if>
+							<t:if test="creado">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;background: none repeat scroll 0% 0% #E74C3C;">Creado</label>
+							</t:if>
+							<t:if test="!enviado">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;">
+									<t:Radio t:id="radioE" value="literal:E" label="Enviado"
+										onclick="this.form.submit()" />
+									<t:label for="radioE" />
+								</label>
+							</t:if>
+							<t:if test="enviado">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;background: none repeat scroll 0% 0% #E74C3C;">Enviado</label>
+							</t:if>
+							<t:if test="!borrado">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;">
+									<t:Radio t:id="radioB" value="literal:B" label="Borrado"
+										onclick="this.form.submit()" />
+									<t:label for="radioB" />
+								</label>
+							</t:if>
+							<t:if test="borrado">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;background: none repeat scroll 0% 0% #E74C3C;">Borrado</label>
+							</t:if>
+							<t:if test="!sinstock">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;">
+									<t:Radio t:id="radioS" value="literal:S" label="Sin Stock"
+										onclick="this.form.submit()" />
+									<t:label for="radioS" />
+								</label>
+							</t:if>
+							<t:if test="sinstock">
+								<label class="radio"
+									style="float:left;margin-top: 30px;padding-left: 0px;margin-left: 10px;margin-right: 5px;background: none repeat scroll 0% 0% #E74C3C;">Sin Stock</label>
+							</t:if>
+						</t:RadioGroup>
+					</form>
+				</section>
+				<p> &nbsp;
+				</p>
+
+				<t:if test="tramitacion">
+					<t:grid source="PedidosTramitacion" row="pedido" add="VerProductos"
+						pagerPosition="bottom" rowsPerPage="10" class="box-table-a" style="width:95%;">
+						<p:VerProductoscell>
+							<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">
+								${message:ver}
+							</t:pagelink>
+						</p:VerProductoscell>
+						<p:empty>
+							<p style="margin-top: 80px;">No hay pedidos en estado de tramitacion.</p>
+						</p:empty>
+
+					</t:grid>
+				</t:if>
+				<t:if test="creado">
+					<t:grid source="PedidosCreado" row="pedido" add="VerProductos"
+						pagerPosition="bottom" rowsPerPage="10" class="box-table-a" style="width:95%;">
+						<p:VerProductoscell>
+							<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">
+								${message:ver}
+							</t:pagelink>
+						</p:VerProductoscell>
+						<p:empty>
+							<p style="margin-top: 80px;">No hay pedidos en estado creado.</p>
+						</p:empty>
+
+					</t:grid>
+				</t:if>
+
+				<t:if test="enviado">
+
+					<t:grid source="PedidosEnviado" row="pedido" add="VerProductos"
+						pagerPosition="bottom" rowsPerPage="10" class="box-table-a" style="width:95%;">
+						<p:VerProductoscell>
+							<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">
+								${message:ver}
+							</t:pagelink>
+						</p:VerProductoscell>
+						<p:empty>
+							<p style="margin-top: 80px;">No hay pedidos en estado enviado.</p>
+						</p:empty>
+
+					</t:grid>
+				</t:if>
+				<t:if test="borrado">
+					<t:grid source="PedidosBorrado" row="pedido" add="VerProductos"
+						pagerPosition="bottom" rowsPerPage="10" class="box-table-a" style="width:95%;">
+						<p:VerProductoscell>
+							<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">
+								${message:ver}
+							</t:pagelink>
+						</p:VerProductoscell>
+						<p:empty>
+							<p style="margin-top: 80px;">No hay pedidos en estado borrado.</p>
+						</p:empty>
+
+					</t:grid>
+				</t:if>
+				<t:if test="sinstock">
+					<t:grid source="PedidosSinStock" row="pedido" add="VerProductos"
+						pagerPosition="bottom" rowsPerPage="10" class="box-table-a" style="width:95%;">
+						<p:VerProductoscell>
+							<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">
+								${message:ver}
+							</t:pagelink>
+						</p:VerProductoscell>
+						<p:empty>
+							<p style="margin-top: 80px;">No hay pedidos en estado sin stock.</p>
+						</p:empty>
+					</t:grid>
+				</t:if>
+			</div>
+		</div>
+	</div>
+
+</html>

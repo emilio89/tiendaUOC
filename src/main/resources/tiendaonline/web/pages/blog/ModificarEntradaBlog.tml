@@ -1,0 +1,50 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+
+
+
+<div class="single_top">
+	 <div class="container"> 
+
+
+	<form t:type="Form" t:id="crearEntradaForm" >	
+	  <t:errors/>	 
+	    <div class="register">
+			  <div class="col-md-6 login-right">
+
+			  	<h3  style="margin-bottom: 30px;">CREAR ENTRADA EN BLOG </h3>
+		
+				  <div>
+					 <span style="float:left;line-height: 35px;">Asunto: </span>	
+	          		 <input style="float:left; vertical-align: center;" t:id="titulo" t:type="TextField"
+				       t:validate="required" 
+				       size="16" maxlength="255" />
+				       
+				       <span style="float:left;line-height: 55px;">Resumen: </span>	
+	          		 <input style="float:left; vertical-align: center;" t:id="resumen" t:type="TextField"
+				       t:validate="required" 
+				       size="16" maxlength="500" />
+				       
+				<span style="float:left;line-height: 35px;">Texto Entrada: </span>		       
+				   <t:TextArea style="width:600px;height:300px;" t:id="texto"></t:TextArea>
+				       
+				  </div>
+				  <div style="margin-top: 60px;margin-left: 80%;">						  			    
+				    <input type="submit" value="Crear entrada blog"/>
+				  </div>	
+
+</div>
+</div>
+
+</form>
+
+</div>
+</div>
+
+
+
+</html>

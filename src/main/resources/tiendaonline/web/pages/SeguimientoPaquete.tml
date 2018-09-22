@@ -1,0 +1,17 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<div>
+		<div class="container">
+			<p style="text-align: center;">
+				<strong>Seguimiento del paquete</strong>
+			</p>
+			<br></br>
+			<p>${message:parrafo1}</p>
+			<br></br>
+			<p>${message:parrafo2}</p>
+			<br></br>
+			<p>${message:parrafo3}</p>
+		</div>
+	</div>
+</html>

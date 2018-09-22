@@ -1,0 +1,32 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+
+			<form t:type="Form" t:id="regalarPuntosForm">
+				<t:errors />
+				<div class="register">
+					<div class="col-md-6 login-right">
+
+						<h3 style="margin-bottom: 30px;">Regalar Puntos </h3>
+
+						<div>
+							<span style="float:left;line-height: 35px;">Numero Puntos</span>
+							<input style="float:left; vertical-align: center;" t:id="numeroPuntos"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+						<div style="margin-top: 130px;margin-left: 80%;">
+							<input type="submit" value="Regalar" />
+						</div>
+
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+</html>

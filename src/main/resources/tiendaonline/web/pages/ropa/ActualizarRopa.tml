@@ -1,0 +1,47 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">${message:actualizar}</h3>
+
+				<t:grid source="listaRopa" row="ropa"
+					add="Modificar,Stock,Etiqueta,ModificarStock,Borrar"
+					exclude="idRopa,color,marca,numPuntos,descripcion,idEtiqueta,idCategoria"
+					pagerPosition="bottom" rowsPerPage="20" class="box-table-a" style="width:95%;">
+					<p:Modificarcell>
+						<t:pagelink page="Ropa/ModificarRopa" context="ropa.idRopa">
+							${message:modificar}
+						</t:pagelink>
+					</p:Modificarcell>
+					<p:Stockcell>
+						<t:pagelink page="Ropa/AnadirStock" context="ropa.idRopa">
+							${message:stock}
+						</t:pagelink>
+					</p:Stockcell>
+					<p:Etiquetacell>
+						<t:pagelink page="Ropa/AsignarEtiqueta" context="ropa.idRopa">
+							${message:etiqueta}
+						</t:pagelink>
+					</p:Etiquetacell>
+					<p:ModificarStockcell>
+						<t:pagelink page="Ropa/ModificarStock" context="ropa.idRopa">
+							${message:modificarStock}
+						</t:pagelink>
+					</p:ModificarStockcell>
+					<p:Borrarcell>
+						<t:actionlink
+							onclick="return confirm('${message:confirmarBorrar}');"
+							context="ropa.idRopa" t:id="borrarRopa"> Borrar Ropa</t:actionlink>
+					</p:Borrarcell>
+
+				</t:grid>
+			</div>
+		</div>
+	</div>
+
+
+</html>

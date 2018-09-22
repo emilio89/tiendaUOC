@@ -1,0 +1,46 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<script type="text/javascript" src="${context:/js/nicEdit-latest.js}"></script>
+	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+
+
+
+	<div class="single_top">
+		<div class="container">
+			<form t:type="Form" t:id="modificarCorreoForm">
+				<t:errors />
+				<div class="register">
+					<div class="col-md-6 login-right">
+
+						<h3 style="margin-bottom: 30px;">Correo  </h3>
+
+						<div>
+							<b>Instrucciones para realizar este correo automático:</b>
+							${correo.instruccionesCorreo}
+							<div id="asuntoCorreo">
+								<span style="float:left;line-height: 35px;">Asunto Correo: </span>
+								<input style="float:left; vertical-align: center;" t:id="asuntoCorreo"
+									t:type="TextField" size="16" maxlength="255" value="asuntoCorreo" />
+							</div>
+							<span style="float:left;line-height: 35px;">Texto Correo: </span>
+							<t:TextArea style="width:600px;height:300px;" t:id="textoCorreo"
+								value="textoCorreo"></t:TextArea>
+
+						</div>
+						<div style="margin-top: 60px;margin-left: 80%;">
+							<input type="submit" value="Modificar Correo" />
+						</div>
+
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+
+
+</html>

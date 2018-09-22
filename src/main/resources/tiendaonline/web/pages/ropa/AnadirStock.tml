@@ -1,0 +1,36 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" t:pageTitle="title" t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+
+			<div class="register">
+				<div class="col-md-6 login-right" style="width: 50%;margin-left: 30%;">
+
+					<h3>${message:menuExplanation}</h3>
+
+					<form t:type="Form" t:id="anadirStockForm">
+						<t:errors />
+						<div>
+							<span style="float:left;width: 30%;line-height: 35px;">${message:talla}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="talla" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+						<div style="margin-top: 35px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:stock}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="stock" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+						<div style="margin-top: 35px;">
+							<input type="submit" value="${message:submit}" />
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

@@ -1,0 +1,223 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" xmlns:p="tapestry:parameter" t:pageTitle="title">
+	<style>
+
+		.grid.images_3_of_2 img {
+		max-width: 255px;
+		}
+		TABLE.t-data-grid
+		THEAD TR TH{
+		padding: 0px;
+		}
+		.item3 ul {
+		display:block;
+		}
+		.item2 ul {
+		display:block;
+		}
+
+
+
+	</style>
+
+	<script>
+		$( "div.item1 ul" ).toggleClass( "active" )
+	</script>
+	<body>
+
+
+		<div class="single_top">
+			<div class="container">
+				<div class="single_grid">
+					<div class="grid images_3_of_2">
+						<img src="${imageLink}" />
+
+					</div>
+					<div class="desc1 span_3_of_2">
+
+						<h1>${ropa.nombre}</h1>
+						<p>
+							${ropa.descripcion}
+						</p>
+						<p>Marca : ${ropa.marca}</p>
+						<p>Color : ${ropa.color}</p>
+						<t:if test="hayPuntos">
+							<p>Puntos : ${ropa.numPuntos}</p>
+						</t:if>
+						<div class="dropdown_top">
+							<div class="dropdown_left">
+
+								<form t:type="Form" t:id="anadirCarritoForm">
+									<t:select t:id="stockTalla" value="idStockTalla"
+										model="stockTallaSelectModel" class="dropdown" tabindex="10"
+										data-settings='{"wrapperClass":"metro1"}' />
+
+									<div class="simpleCart_shelfItem">
+										<div class="price_single">
+											<div class="head">
+												<h2>
+													<span class="amount item_price">${ropa.precio}&euro;
+													</span>
+												</h2>
+											</div>
+											<!-- <div class="clearfix"></div> -->
+										</div>
+
+									</div>
+
+									<div class="button">
+										<input type="submit" id="submit" name="submit"
+											value="${message:anadir}" class="item_add item_add1 btn_5" />
+									</div>
+								</form>
+
+							</div>
+
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="single_social_top">
+					<ul class="single_social">
+						<li>
+							<a href="javascript: void(1);"
+								onclick="window.open('http://www.facebook.com/sharer.php?u='+document.URL,'ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">
+								<i class="s_fb">
+								</i>
+								<div class="social_desc">
+									Share
+									<br />
+									on facebook
+								</div>
+								<div class="clearfix">
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript: void(1);"
+								onclick="window.open('http://twitter.com/intent/tweet?url='+document.URL,'ventanacompartir', 
+                'toolbar=0, status=0, width=650, height=450');">
+								<i class="s_twt">
+								</i>
+								<div class="social_desc">
+									Tweet
+									<br />
+									this product
+								</div>
+								<div class="clearfix">
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+
+				<!-- DESCRIPCION -->
+				<div>
+					<ul class="menu_drop">
+						<li class="item1">
+							<a>
+								<img src="${context:images/product_arrow.png}" />
+								${message:info}
+							</a>
+							<ul style="display:block;background-color: white;">
+								<div style="margin-left: 20px;">														
+										&nbsp;
+									<li class="subitem1">${ropa.descripcion}</li>
+									<li class="subitem2">Marca : ${ropa.marca}</li>
+									<li class="subitem3">Color : ${ropa.color}</li>
+									<li class="subitem4">Categoria: ${categoria.nombreCategoria}</li>
+									<t:if test="hayEtiqueta">
+										<li class="subitem5">Etiqueta : ${etiqueta.nombreEtiqueta}</li>
+									</t:if>						
+									
+		                           		&nbsp;
+								</div>
+							</ul>
+						</li>
+						<li class="item2">
+							<a>
+								<img src="${context:images/product_arrow.png}" />
+								${message:comentarios}
+							</a>
+							<ul style="display: block;background: white;">
+								<div style="margin-left: 20px;">
+									&nbsp;
+									<table class="listaComentarios" style="margin: 0 auto;">
+										<tr t:type="Loop" t:source="listaComentarios" t:value="comentario">
+											<div class="nameUser"
+												style="float:left; margin-top: 5px;margin-right: 10px;font-weight: bold;">Comentario de ${comentario.usuario.loginName}</div>
+											<div class="textComent" style="float:left;margin-top: 5px;">${comentario.textoComentario}</div>
+											<div class="clearfix"></div>
+										</tr>
+									</table>
+							        &nbsp;
+								</div>
+							</ul>
+						</li>
+
+						<li class="item3">
+							<a>
+								<img src="${context:images/product_arrow.png}" />
+								${message:recomendaciones}
+							</a>
+							<ul style="display:block; 	background: white;">
+								<div style="margin-left: 20px;min-height: 200px;">
+									&nbsp;
+									<table class="listaRopaIndex" style="margin: 0 auto;">
+										<tr t:type="Loop" t:source="listados" t:value="listado">
+
+											<t:pagelink style="float:left;" class=""
+												page="Ropa/VerRopa" context="listado.idRopa">
+												<div class="imagenRecom"
+													style="margin-top: 20px;float:left;margin-right:10px;width:225px;height:265px">
+													<img style="" width="225" height="225"
+														src="${listado.direccionImagen}" class="img-responsive"
+														alt="item4"></img>
+												</div>
+											</t:pagelink>
+										</tr>
+									</table>		
+							        &nbsp;
+								</div>
+							</ul>
+						</li>
+
+
+
+
+
+
+					</ul>
+				</div>
+
+
+			</div>
+		</div>
+		<t:if test="logueado">
+			<div class="container">
+				<h4>${message:anadircomentario}</h4>
+				<form t:type="Form" t:id="comentarioForm">
+					<div class="column_3">
+						<t:TextArea t:id="coment" value="textAreaValue"
+							placeholder="" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = '${message:comentarioText}';}"></t:TextArea>
+					</div>
+
+					<div class="form-submit1">
+						<input value="${message:enviarcomentario}" type="submit"></input>
+					</div>
+
+				</form>
+
+			</div>
+
+		</t:if>
+          
+         &nbsp;
+	</body>
+
+
+
+</html>

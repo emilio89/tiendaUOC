@@ -1,0 +1,24 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+
+  <div>
+	<div class="container">
+
+		<div class="register">
+
+			<h3 style="color:#f54d56;" >${message:actualizar}</h3>
+
+		  	<t:grid source="listaEntradasBlog" row="entradablog" add="Modificar" exclude="Texto,idEntradaBlog" pagerPosition="bottom" rowsPerPage="20" class="box-table-a" style="width:95%;">     
+	            <p:Modificarcell>
+	                <t:pagelink page="Blog/ModificarEntradaBlog" context="entradablog.idEntradaBlog" > Modificar</t:pagelink>
+	            </p:Modificarcell> 		
+	                    
+	        </t:grid>
+		</div>
+	</div>
+</div>
+
+
+</html>

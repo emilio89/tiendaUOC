@@ -1,0 +1,133 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">${message:menuExplanation}</h3>
+				<h4>
+					Este pedido esta en estado:
+					<strong>${pedido.estado}</strong>
+				</h4>
+
+				<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+					<tr>
+						<th>Foto</th>
+						<th>Nombre</th>
+						<th>Cantidad</th>
+						<th>Precio</th>
+					</tr>
+					<tr t:type="Loop" t:source="listaproductospedido" t:value="lineaPedido">
+
+						<p:empty>
+							<td style="margin-top:20px; margin-bottom:20px;colspan=4;">
+								<h4>${message:noproductos}</h4>
+							</td>
+						</p:empty>
+
+						<td>
+							<img src="${imageLink}" style="max-width: 50px;max-height: 50px;" />
+						</td>
+						<td>
+							<t:pagelink page="Ropa/VerRopa" context="lineaPedido.idRopa">${ropa.nombre}
+							</t:pagelink>
+						</td>
+						<td>
+							<span class="entry">${lineaPedido.numeroUnidades}</span>
+						</td>
+						<td>
+							<span class="entry">${lineaPedido.precioUnitario} &euro;
+							</span>
+						</td>
+					</tr>
+				</table>
+
+
+				<t:if test="hayDescuentosEtiqueta">
+					<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+
+						<tr t:type="Loop" t:source="PorcentajeDescuentos" t:value="string">
+							<td>${string}</td>
+						</tr>
+					</table>
+				</t:if>
+				<t:if test="hayDescuentosPuntos">
+
+					<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+
+						<tr>
+							<td>El usuario ha usado los puntos de su cuenta para obtener un
+								descuento.
+							</td>
+						</tr>
+					</table>
+				</t:if>
+
+			</div>
+			<br></br>
+			<h4>El precio de este pedido es de, ${precioPedido} euros</h4>
+
+
+			<t:if test="enviado">
+				Si se ha hecho ya, porfavor enviele al usuario de este pedido, la
+				fecha aproximada de recepcion y el Numero de seguimiento del
+				paquete.
+				<form t:type="Form" t:id="enviarCorreoForm"
+					style="margin-left:50px;margin-bottom:20px;margin-top:30px;">
+					<strong>
+						<span style="float:left;width: 14%;line-height: 35px;    width: 270px;">Fecha de recepcion aprox. : </span>
+					</strong>
+					<input
+						style="vertical-align: center;float:left; margin-bottom:20px;margin-top:20px;"
+						t:id="fechaRecepcion" t:type="TextField" t:validate="required"
+						size="50" maxlength="60" />
+					<div class="clearfix"></div>
+					<strong>
+						<span style="float:left;width: 14%;line-height: 35px;    width: 270px;">Numero de seguimiento</span>
+					</strong>
+
+					<input
+						style="vertical-align: center;float:left; margin-bottom:20px;margin-top:20px;"
+						t:id="numeroSeguimiento" t:type="TextField" t:validate="required"
+						size="50" maxlength="60" />
+
+					<div class="clearfix"></div>
+					<input class="acount-btn" type="submit" value="Enviar Correo" />
+
+				</form>
+
+
+			</t:if>
+			<t:if test="tramitacion">
+
+
+				<div class="button" style="padding-top:0px;">
+					<form t:type="Form" t:id="comprobarStockForm">
+						<input class="acount-btn" type="submit" value="Comprobar Stock"
+							style="margin-top:10px;margin-bottom:30px;" />
+					</form>
+				</div>
+
+
+
+			</t:if>
+			<t:if test="creado">
+				
+			</t:if>
+			<t:if test="borrado">
+			</t:if>
+
+
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+</html>

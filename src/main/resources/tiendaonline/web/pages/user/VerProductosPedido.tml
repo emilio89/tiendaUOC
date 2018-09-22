@@ -1,0 +1,139 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+	<script type="text/javascript" src="${context:/js/nicEdit-latest.js}"></script>
+	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">${message:menuExplanation}</h3>
+
+
+				<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+					<tr>
+						<th>Foto</th>
+						<th>Nombre</th>
+						<th>Cantidad</th>
+						<th>Precio</th>
+					</tr>
+					<tr t:type="Loop" t:source="listaproductospedido" t:value="lineaPedido">
+
+						<p:empty>
+							<td style="margin-top:20px; margin-bottom:20px;colspan=4;">
+								<h4>${message:noproductos}</h4>
+							</td>
+						</p:empty>
+
+						<td>
+							<img src="${imageLink}" style="max-width: 50px;max-height: 50px;" />
+						</td>
+						<td>
+							<t:pagelink page="Ropa/VerRopa" context="lineaPedido.idRopa">${ropa.nombre}
+							</t:pagelink>
+						</td>
+						<td>
+							<span class="entry">${lineaPedido.numeroUnidades}</span>
+						</td>
+						<td>
+							<span class="entry">${lineaPedido.precioUnitario} &euro;
+							</span>
+						</td>
+					</tr>
+
+				</table>
+
+
+				<t:if test="hayDescuentosEtiqueta">
+					<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+
+						<tr t:type="Loop" t:source="PorcentajeDescuentos" t:value="string">
+							<td>${string}</td>
+						</tr>
+					</table>
+				</t:if>
+				<t:if test="hayDescuentosPuntos">
+
+					<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+
+						<tr>
+							<td>Ha usado los puntos de su cuenta para obtener un descuento en su pedido.							</td>
+						</tr>
+					</table>
+				</t:if>
+
+			</div>
+			<br></br>
+			<h4>El precio de este pedido es de, ${precioPedido} euros</h4>
+
+
+			<t:if test="enviado">
+				Si tiene alguna duda sobre este pedido, por favor haganosla saber
+				rellenando el siguiente formulario le contestaremos lo antes
+				posible:
+				<form t:type="Form" t:id="enviarCorreoForm"
+					style="margin-left:50px;margin-bottom:20px;margin-top:30px;">
+					<strong>
+						<span style="float:left;width: 14%;line-height: 35px;">Asunto de la duda : </span>
+					</strong>
+					<input
+						style="vertical-align: center;float:left; margin-bottom:20px;margin-top:20px;"
+						t:id="asuntoCorreo" t:type="TextField" t:validate="required" size="50"
+						maxlength="60" />
+					<div class="clearfix"></div>
+					<strong>
+						<span style="float:left;width: 14%;line-height: 35px;">Duda o sugerencia:</span>
+					</strong>
+
+					<t:TextArea style="width:550px;height:375px;float:left;"
+						t:id="textoCorreo" value="textAreaValue" placeholder=""
+						onfocus="this.value = '';"
+						onblur="if (this.value == '') {this.value = 'Duda o sugerencia';}"></t:TextArea>
+
+					<div class="clearfix"></div>
+					<input class="acount-btn" type="submit" value="Enviar Correo" />
+
+				</form>
+
+			</t:if>
+			<t:if test="tramitacion">
+				<h4> Hasta que el pedido pase a estado enviado usted puede borrar su
+					pedido:</h4>
+				<form t:type="Form" t:id="borrarPedidoForm"
+					style="margin-left:50px; margin-right:50px;float:right;display:inline-block;width:15%;margin-bottom:20px;">
+					<input class="acount-btn" type="submit" value="Borrar Pedido" />
+				</form>
+
+
+			</t:if>
+			<t:if test="creado">
+				Desea tramitar este pedido que tiene creado?
+				<form t:type="Form" t:id="tramitarPedidoForm"
+					style="margin-left:50px;float:right;display:inline-block;width:15%;margin-bottom:20px;">
+					<input class="acount-btn"
+						onclick="return confirm('Este pedido pasara a tramitarse, esta seguro? ');"
+						type="submit" value="Tramitar Pedido" />
+				</form>
+			</t:if>
+			<t:if test="borrado">
+				Desea tramitar este pedido que tiene en estado borrado?
+				<form t:type="Form" t:id="tramitarPedidoForm2"
+					style="margin-left:50px;float:right;display:inline-block;width:15%;margin-bottom:20px;">
+					<input class="acount-btn"
+						onclick="return confirm('Este pedido pasara a tramitarse, esta seguro? ');"
+						type="submit" value="Tramitar Pedido" />
+				</form>
+			</t:if>
+
+		</div>
+	</div>
+
+
+
+
+
+
+</html>

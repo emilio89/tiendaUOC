@@ -1,0 +1,134 @@
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">Mi Carrito</h3>
+				<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+					<t:if test="Hay">
+						<tr>
+							<th>Foto</th>
+							<th>Nombre</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
+						</tr>
+					</t:if>
+					<tr t:type="Loop" t:source="Productos" t:value="lineaCarrito">
+
+						<p:empty>
+							<td style="margin-top:20px; margin-bottom:20px;colspan=4;">
+								<h4>${message:noproductos}</h4>
+							</td>
+						</p:empty>
+
+						<t:if test="lineaCarrito">
+							<td>
+								<img src="${imageLink}" style="max-width: 50px;max-height: 50px;" />
+							</td>
+							<td>
+								<t:pagelink page="Ropa/VerRopa" context="lineaCarrito.ropa.idRopa">${lineaCarrito.ropa.nombre}
+								</t:pagelink>
+							</td>
+							<td>
+								<form t:type="Form" t:id="actualizarCantidadForm">
+									<span class="entry">
+										<input t:id="cantidad" t:type="TextField"
+											style="background-color: white;margin-bottom: -2px;"
+											t:validate="required" size="16" maxlength="30" />
+										<t:textfield t:id="identificadorRopa" style="display:none" />
+										<t:submit image="context:images/reload2.png" style="width: 20px;vertical-align: bottom;" />
+									</span>
+								</form>
+							</td>
+							<td>
+								<span class="entry">${lineaCarrito.precio} &euro;
+								</span>
+							</td>
+						</t:if>
+					</tr>
+
+				</table>
+			</div>
+
+			<div>
+				<table class="box-table-a" style="margin: 0 auto;width: 80%;">
+					<tr t:type="Loop" t:source="PorcentajeDescuento" t:value="string">
+						<td>${string}	</td>
+
+					</tr>
+
+				</table>
+			</div>
+			<t:if test="userSession">
+				<t:if test="Hay">
+					<div class="container">
+						<div class="register">
+							<div class="col-md-6 login-right">
+
+								<form t:type="form" t:id="myForm">
+
+									<h3>Que quieres hacer con los puntos?</h3>
+									<t:RadioGroup t:id="valueForMyBoolean">
+										<t:Radio t:id="radioT" value="literal:T" label="Acumular"
+											onclick="this.form.submit()" />
+										<t:label for="radioT" />&nbsp;&nbsp;
+										<t:Radio t:id="radioF" value="literal:F" label="Descontar"
+											onclick="this.form.submit()" />
+										<t:label for="radioF" />&nbsp;&nbsp;
+									</t:RadioGroup>
+
+								</form>
+
+								<t:if test="myBoolean">
+									<h4>Vas a acumular ${puntosRopa} puntos en tu cuenta.</h4>
+								</t:if>
+								<t:if test="!myBoolean">
+									<h4>Vas a descontar ${puntosUsuario} puntos de tu cuenta + ${puntosRopa} puntos de la ropa del carrito  </h4>
+									<h4>El
+										descuento es de: ${DescuentoPuntos}  &euro;
+									</h4>
+								</t:if>
+							</div>
+						</div>
+					</div>
+
+
+					<div style="margin-top:30px;margin-bottom:20px;">
+						<form t:type="Form" t:id="borrarCarritoForm"
+							style="float:left;display:inline-block;width:15%;margin-left: 35%;margin-bottom:20px;">
+							<input class="acount-btn" type="submit" value="Borrar Carrito" />
+						</form>
+
+						<form t:type="Form" t:id="tramitarPedidoForm"
+							style="float:left;display:inline-block;width:15%;margin-bottom:20px;">
+							<input class="acount-btn"
+								onclick="return confirm('Estas seguro que quieres crear un pedido con estos productos?');"
+								type="submit" value="Tramitar Pedido" />
+						</form>
+					</div>
+				</t:if>
+				<p:else>
+					<h3 style="text-align:center; margin-top:15px;">
+						Para tramitar este carrito debe
+						<a href="#" t:type="PageLink" t:page="user/Login" style="color:#2FC2EF;">
+							Iniciar - sesion</a>
+						o
+						<a href="#" t:type="PageLink" t:page="user/register" style="color:#2FC2EF;">registrarse</a>
+					</h3>
+				</p:else>
+
+			</t:if>
+
+		</div>
+	</div>
+
+
+
+
+</html>

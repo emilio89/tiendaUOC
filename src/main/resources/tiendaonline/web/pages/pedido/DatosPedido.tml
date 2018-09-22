@@ -1,0 +1,103 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<div>
+		<div class="container">
+			<t:if test="acceso">
+				<div class="register">
+					<h3 style="color:#f54d56;">${message:menuExplanation}</h3>
+					<table class="box-table-a"
+						style="margin: 0 auto;width: 80%; margin-top:20px; margin-bottom:20px;">
+						<tr>
+							<th>Foto</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
+						</tr>
+						<tr t:type="Loop" t:source="listaproductospedido" t:value="lineaPedido">
+							<p:empty>
+								<td style="margin-top:20px; margin-bottom:20px;colspan=4;">
+									<h4>${message:noproductos}</h4>
+								</td>
+							</p:empty>
+							<td>
+								<t:pagelink page="Ropa/VerRopa" context="lineaPedido.idRopa">
+									<img src="${imageLink}" style="max-width: 50px;max-height: 50px;" />
+								</t:pagelink>
+							</td>
+							<td>
+								<t:pagelink page="Ropa/VerRopa" context="lineaPedido.idRopa">${lineaPedido.numeroUnidades}
+								</t:pagelink>
+							</td>
+							<td>
+								<span class="entry">${lineaPedido.precioUnitario} &euro;
+								</span>
+							</td>
+						</tr>
+					</table>
+					<div class="container">
+						<div class="register">
+							<div class="col-md-6 login-right">
+								<h3>El precio final del pedido es: ${precioTotal} Euros</h3>
+								<h3> Estos son los datos a los que se le enviará el pedido : </h3>
+								<div id="datos" style="margin-left: 50px;">
+									<span>
+										Nombre:
+										<strong> ${firstName} ${lastName}</strong>
+										<br></br>
+									</span>
+									<span>
+										Correo electronico: ${email}
+										<br></br>
+									</span>
+									<span>
+										Telefono: ${telefono}
+										<br></br>
+									</span>
+									<span>
+										Dni: ${dni}
+										<br></br>
+									</span>
+									<span>
+										Provincia: ${Provincia}
+										<br></br>
+									</span>
+									<span>
+										Localidad: ${localidad}
+										<br></br>
+									</span>
+									<span>
+										Numero: ${Numero}
+										<br></br>
+									</span>
+									<span>
+										Tus Puntos ahora son: ${numeroPuntos}
+										<br></br>
+									</span>
+								</div>
+								<t:if test="tramitar">
+								<form t:type="Form" t:id="borrarPedidoForm"
+									style="margin-left:50px; margin-right:50px;float:left;display:inline-block;width:15%;margin-bottom:20px;">
+									<input class="acount-btn" type="submit" value="Borrar Pedido" />
+								</form>
+								<form t:type="Form" t:id="formalizarPedidoForm"
+									style="margin-left:50px;float:left;display:inline-block;width:15%;margin-bottom:20px;">
+									<input class="acount-btn"
+										onclick="return confirm('Este pedido pasara a tramitarse, esta seguro? ');"
+										type="submit" value="Tramitar Pedido" />
+								</form>
+								</t:if>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</t:if>
+			<t:if test="!acceso">
+				Este pedido no le corresponde, porfavor busque otro.
+			</t:if>
+		</div>
+	</div>
+
+
+
+</html>

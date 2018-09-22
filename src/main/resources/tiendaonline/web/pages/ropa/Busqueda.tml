@@ -1,0 +1,93 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<div class="single_top" style="margin:0px;">
+		<div class="container">
+			<div class="register">
+				<div class="col-md-6 login-right" style="width: 90%;margin-left: 5%;">
+					<h3>${message:menuExplanation}</h3>
+					<form t:type="Form" t:id="filtrarPorCategoriaForm">
+						<t:errors />
+						<div style="padding:0px;float: left;width: 40%;">
+							<span style="float:left;width: 40%;line-height: 35px;">${message:busqueda}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="aBuscar" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+						<div style="padding:0px;float: left;width: 40%;">
+							<span style="float:left;width: 40%;line-height: 35px;">${message:categoria}</span>
+							<t:select t:id="categoria" value="idCategoria" model="categoriaSelectModel"
+								style="float:left;width: 40%; vertical-align: center;border: 1px solid #DDDBDB;padding: 8px;" />
+						</div>
+						<div style="padding:0px;float: left;">
+							<input type="submit" value="${message:submit}" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div>
+			<div style="width: 100%;">
+				<div class="women">
+					<h4>
+						<span></span>
+					</h4>
+					<div class="clearfix"></div>
+				</div>
+				<!-- grids_of_4 -->
+				<div style="width: 100%;">
+
+
+					<t:any t:mixins="tb/pager" pager.source="ListadosBuscar"
+						pager.rowsPerPage="12">
+						<t:if test="isMultiPaged">
+							<t:tb.pagination />
+						</t:if>
+						<div style="clear: both;">
+							<div t:type="Loop" t:source="ListadosBuscar" t:value="listado"
+								class="grid1_of_4 simpleCart_shelfItem">
+								<p:empty>
+									<p style="margin-top:20px; margin-bottom:20px;">${message:noproductos}</p>
+								</p:empty>
+								<div class="content_box">
+									<t:pagelink page="Ropa/VerRopa" context="listado.idRopa"></t:pagelink>
+									<!-- t:pagelink page="Ropa/VerRopa" context="listado.idRopa" -->
+									<div style="height:70%;">
+										<span
+											style="height: 100%; vertical-align: middle; display: inline-block; "></span>
+										<img src="${listado.direccionImagen}" alt=""
+											style="vertical-align: middle;max-height: 100%;max-width: 100%;" />
+									</div>
+									<!-- /t:pagelink -->
+									<t:pagelink page="Ropa/VerRopa" context="listado.idRopa">
+										<div class="size_1" style="height:15%;">
+											<span
+												style="height: 100%;  vertical-align: middle; display: inline-block; width:0px; float:left;"></span>
+											<h5 style="vertical-align: middle; line-height: 20px;">${listado.nombre}</h5>
+										</div>
+									</t:pagelink>
+									<t:pagelink page="Ropa/VerRopa" context="listado.idRopa">
+										<div class="size_2" style="height:15%;">
+											<span
+												style="height: 100%;  vertical-align: middle; display: inline-block; width:0px; float:left;"></span>
+										</div>
+									</t:pagelink>
+								</div>
+							</div>
+						</div>
+						<t:if test="isMultiPaged">
+							<t:tb.pagination />
+						</t:if>
+					</t:any>
+					<div class="clearfix"></div>
+				</div>
+				<!-- end grids_of_4 -->
+			</div>
+			<!-- start content -->
+			<div class="clearfix"></div>
+			<!-- end content -->
+		</div>
+	</div>
+</html>

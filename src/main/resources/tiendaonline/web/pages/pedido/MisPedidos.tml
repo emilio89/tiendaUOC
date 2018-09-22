@@ -1,0 +1,29 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">${message:menuExplanation}</h3>
+
+				<t:grid source="PedidosTramitados" row="pedido" add="VerProductos"
+					pagerPosition="bottom" rowsPerPage="10" class="box-table-a" style="width:95%;">
+					<p:estadocell>
+						<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">${pedido.estado}
+						</t:pagelink>
+					</p:estadocell>
+					<p:VerProductoscell>
+						<t:pagelink page="Pedido/VerProductosPedido" context="pedido.idPedido">
+							Ver Pedido </t:pagelink>
+					</p:VerProductoscell>
+				</t:grid>
+			</div>
+		</div>
+	</div>
+
+
+</html>

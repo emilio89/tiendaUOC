@@ -1,0 +1,42 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<script type="text/javascript" src="${context:/js/nicEdit-latest.js}"></script>
+	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+	<div class="single_top">
+		<div class="container">
+
+
+			<form t:type="Form" t:id="mandarCorreoForm">
+				<t:errors />
+				<div class="register">
+					<div class="col-md-6 login-right">
+
+						<h3 style="margin-bottom: 30px;">Contáctanos </h3>
+
+						<div>
+							<span style="float:left;line-height: 35px;">Asunto: </span>
+							<input style="float:left; vertical-align: center;" t:id="asuntoCorreo"
+								t:type="TextField" t:validate="required" size="16" maxlength="150" />
+								<span style="float:left;line-height: 35px;">Tu email: </span>
+								<input style="float:left; vertical-align: center;" t:id="emailUsuario"
+								t:type="TextField" t:validate="required" size="16" maxlength="100" />
+							<span style="float:left;line-height: 35px;">Texto Correo: </span>
+							<t:TextArea style="width:600px;height:300px;" t:id="textoCorreo"></t:TextArea>
+
+						</div>
+						<div style="margin-top: 60px;margin-left: 80%;">
+							<input type="submit" value="Enviar Correo" />
+						</div>
+
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+
+
+</html>

@@ -1,0 +1,96 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" t:pageTitle="title" t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+			<form t:type="Form" t:id="actualizarRopaForm">
+				<t:errors />
+				<div class="register">
+					<div class="col-md-6 login-right">
+
+						<h3 style="margin-bottom: 30px;">${message:menuExplanation}</h3>
+
+						<div>
+							<span style="float:left;width: 30%;line-height: 35px;">${message:nombre-Label}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="nombre" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+						<div style="margin-top: 100px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:precio-Label}</span>
+							<input style="float:left;width: 40%;vertical-align: center;"
+								t:id="precio" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+						
+						<div style="margin-top: 170px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:nombreAdjunto-label}</span>
+							<input
+								style="float:left;width: 40%;vertical-align: center;border: 1px solid #DDDBDB;padding: 5px;"
+								t:type="upload" t:id="file" t:value="file" onClick="fileUpload.showProgress();"
+								size="16" maxlength="8" />
+						</div>
+
+						<div style="margin-top: 240px">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:marca-Label}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="marca" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+
+
+						<div style="margin-top: 310px">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:etiqueta}</span>
+							<t:select
+								style="float:left;width: 40%; vertical-align: center;border: 1px solid #DDDBDB;padding: 10px;"
+								t:id="etiqueta" value="idEtiqueta" model="etiquetaSelectModel" />
+						</div>
+
+						<div style="margin-top: 380px;margin-left: 80%;">
+							<input t:defer="false" type="submit" value="${message:submit}" />
+						</div>
+
+					</div>
+
+					<div class="col-md-6 login-right">
+
+						<div style="margin-top: 56px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:descripcion-label}</span>
+							<input style="float:left;width: 40%;" t:id="descripcion"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 126px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:color-Label}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="color" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+
+						<div style="margin-top: 196px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:puntos-Label}</span>
+							<input style="float:left;width: 40%;" t:id="numPuntos"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+						<div style="margin-top: 270px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:seleccionaCategoria}</span>
+							<t:select
+								style="float:left;width: 40%;border: 1px solid #DDDBDB;padding: 10px;"
+								t:id="categoria" value="idCategoria" model="categoriaSelectModel" />
+						</div>
+
+					</div>
+					<div class="clearfix">
+					</div>
+
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+
+</html>

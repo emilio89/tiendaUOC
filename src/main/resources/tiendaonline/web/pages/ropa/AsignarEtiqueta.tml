@@ -1,0 +1,35 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" t:pageTitle="title" t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+
+			<div class="register">
+				<div class="col-md-6 login-right" style="width: 50%;margin-left: 30%;">
+
+					<h3>${message:menuExplanation}</h3>
+
+					<form t:type="Form" t:id="asignarEtiquetaForm">
+						<t:errors />
+						<div>
+							<span style="float:left;width: 30%;line-height: 35px;">${message:ropa}</span>
+							<span style="float:left;width: 30%;line-height: 35px;">${ropa.idRopa}</span>
+						</div>
+						<div style="margin-top: 35px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:etiqueta}</span>
+							<t:select
+								style="float:left;width: 40%; vertical-align: center;border: 1px solid #DDDBDB;padding: 10px;"
+								t:id="etiqueta" value="idEtiqueta" model="etiquetaSelectModel" />
+						</div>
+						<div style="margin-top: 35px;">
+							<input type="submit" value="${message:submit}" />
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</html>

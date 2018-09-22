@@ -1,0 +1,14 @@
+/* Error messages. */
+
+div.t-error ul {
+	font-weight: bold;
+}
+
+DIV.t-data-grid-pager   { 
+	margin-left: 45%; 
+	margin-top: -20px; 
+}
+DIV.t-data-grid-pager span.current  {
+	background-color: #F54D56;
+}
+

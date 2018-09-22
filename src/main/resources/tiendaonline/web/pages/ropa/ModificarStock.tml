@@ -1,0 +1,43 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+			<div class="register">
+				<div class="col-md-6 login-right" style="width: 50%;margin-left: 25%;">
+
+					<h3 style="margin-bottom: 30px;">${message:menuExplanation}</h3>
+
+					<div t:type="Loop" t:source="listStockTalla" t:value="stockTalla"
+						index="columnIndex" class="grid1_of_4 simpleCart_shelfItem" style="width: 100%;">
+						<form t:type="Form" t:id="actualizarStockForm">
+							<t:errors />
+
+							<div>
+								<span style="float:left;width: 30%;line-height: 35px;">Talla: </span>
+								<input style="float:left;width: 40%; vertical-align: center;"
+									value="${stockTalla.talla}" t:id="talla" t:type="TextField"
+									t:validate="required" size="16" maxlength="30" />
+							</div>
+							<div style="margin-top: 35px;">
+								<span style="float:left;width: 30%;line-height: 35px;">Stock: </span>
+								<input style="float:left;width: 40%; vertical-align: center;"
+									value="${stockTalla.stock}" t:id="stock" t:type="TextField"
+									t:validate="required" size="16" maxlength="30" />
+							</div>
+
+						</form>
+					</div>
+
+					<div
+						style="margin-left: 25%;margin-top: calc((90px*${columnIndexMasUno}));">
+						<input type="submit" value="${message:submit}" />
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

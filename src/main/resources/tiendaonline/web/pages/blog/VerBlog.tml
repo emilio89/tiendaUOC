@@ -1,0 +1,57 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+  <body>
+
+  
+<div class="container">
+<div     style="width: 70%;
+    margin: 0 auto;">
+	<div style="width: 100%;;">
+		<h1 style="text-align:center;margin-bottom:20px;">BLOG DE TIENDA ONLINE</h1>
+		<!-- grids_of_4 -->
+		<div style="width: 100%;">
+		
+			<t:any t:mixins="tb/pager" pager.source="ListaEntradasBlog" pager.rowsPerPage="10">			
+
+			    <t:if test="isMultiPaged">
+			      <t:tb.pagination/>
+			    </t:if>
+				
+				<div style="clear: both;padding-top:15px;">
+				
+				  <div t:type="Loop" t:source="listaEntradasBlog" t:value="entradaBlog">
+				  									            	  
+							<!--  t:pagelink page="Ropa/VerRopa" context="listado.idRopa" -->				
+						   	 <!-- /t:pagelink -->		
+						   	 <t:pagelink page="Blog/VerEntrada" context="entradaBlog.idEntradaBlog" >		   
+							     	<span ></span>
+								    <h3 style="color:#f54d56;margin-top:10px">${entradaBlog.titulo}</h3>   </t:pagelink> 
+								  <h5 style="border-bottom-style: dashed;border-bottom: 1px dashed grey;
+    padding-bottom: 20px;" > ${entradaBlog.resumen}</h5>    		    		      		    						 		    		      		    
+				      		 
+					</div>
+				</div>
+			
+			    <t:if test="isMultiPaged">
+			      <t:tb.pagination/>
+			    </t:if>					
+						
+			</t:any>  
+			
+			
+			<div class="clearfix"></div>
+		</div>
+		<!-- end grids_of_4 -->
+	</div>
+
+	<!-- start content -->
+   <div class="clearfix"></div>
+   <!-- end content -->
+ </div>
+</div>
+  
+ 
+      
+      </body>
+</html>

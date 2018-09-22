@@ -1,0 +1,39 @@
+-- ----------------------------------------------------------------------------
+-- Put here INSERT statements for inserting data required by the application
+-- in the "pojo" database.
+-------------------------------------------------------------------------------
+
+INSERT INTO UserProfile VALUES(7,'emilio','ZRvgGhQvRAWJ6','Emilio','Dominguez','emilio89@gmail.com' ,'9999999s',635882115,'23/02/2999','Normal',5);
+
+INSERT INTO Categoria VALUES (1,'Ropa Hombre', 0);
+INSERT INTO Categoria VALUES (2,'Ropa Mujer', 0);
+INSERT INTO Categoria VALUES (3,'Ropa Niño', 1);
+INSERT INTO Categoria VALUES (4,'Ropa Niña', 2);
+INSERT INTO Categoria VALUES (5,'Calzado Niño', 3);
+
+
+INSERT INTO StockTalla VALUES (1, 'L',50,1);
+INSERT INTO StockTalla VALUES (4, 'XXL',50,1);
+
+INSERT INTO StockTalla VALUES (2, 'M',50,2);
+INSERT INTO StockTalla VALUES (3, 'XL',50,3);
+INSERT INTO StockTalla VALUES (5, 'L',50,4);
+
+
+
+
+-- SI TENGO BLOB EN CREATETABLES NO PUEDO HACER ESTO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,52 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" t:pageTitle="title" t:menuExplanation="menuExplanation">
+	<div class="single_top">
+		<div class="container">
+
+			<div class="register">
+				<div class="col-md-6 login-right">
+
+					<h3>${message:menuExplanation}</h3>
+
+					<form t:type="Form" t:id="loginForm">
+						<t:errors />
+						<div>
+							<span>
+								${message:usuario}
+								<label>*</label>
+							</span>
+							<input t:id="loginName" t:type="TextField" t:validate="required"
+								size="16" maxlength="30" />
+						</div>
+						<div>
+							<span>
+								${message:contrasena}
+								<label>*</label>
+							</span>
+							<input t:id="password" t:type="PasswordField" t:validate="required"
+								size="16" maxlength="8" style="border: 1px solid #DDDBDB;padding: 8px;" />
+						</div>
+						<div>
+							<input style="float:left;" t:type="Checkbox" t:id="rememberMyPassword" />
+							<span style="float:left;">${message:recordar} </span>
+						</div>
+						<div>
+							<input type="submit" value="${message:submit}" />
+						</div>
+					</form>
+
+				</div>
+				<div class="col-md-6 login-left">
+					<h3>${message:register}</h3>
+					<p></p>
+					<a class="acount-btn" href="register.html" t:type="PageLink"
+						t:page="user/Register">${message:botonregistrar}</a>
+				</div>
+				<div class="clearfix">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</html>

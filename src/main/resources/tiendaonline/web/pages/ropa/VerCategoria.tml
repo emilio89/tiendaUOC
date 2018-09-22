@@ -1,0 +1,87 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<body>
+		<div class="container">
+			<div>
+				<div style="width: 100%;">
+					<div class="women">
+						<h4>
+							<span>${categoria.nombreCategoria}</span>
+						</h4>
+						<div class="clearfix"></div>
+					</div>
+					<!-- grids_of_4 -->
+					<div style="width: 100%;">
+
+						<t:any t:mixins="tb/pager" pager.source="listadosCategoria"
+							pager.rowsPerPage="12">
+
+							<t:if test="isMultiPaged">
+								<t:tb.pagination />
+							</t:if>
+							<div style="clear: both;">
+
+								<div t:type="Loop" t:source="listadosCategoria" t:value="listado"
+									class="grid1_of_4 simpleCart_shelfItem">
+
+									<p:empty>
+										<p style="margin-top:20px; margin-bottom:20px;clear: both;">${message:noproductos}</p>
+									</p:empty>
+
+									<div class="content_box">
+										<t:pagelink page="Ropa/VerRopa" context="listado.idRopa"></t:pagelink>
+										<!-- t:pagelink page="Ropa/VerRopa" context="listado.idRopa" -->
+										<div style="height:70%;">
+											<span
+												style="height: 100%; vertical-align: middle; display: inline-block; "></span>
+											<img src="${listado.direccionImagen}" alt=""
+												style="vertical-align: middle; max-height: 100%;max-width: 100%;" />
+										</div>
+										<!-- /t:pagelink -->
+										<t:pagelink page="Ropa/VerRopa" context="listado.idRopa">
+											<div class="size_1" style="height:15%;">
+												<span
+													style="height: 100%;  vertical-align: middle; display: inline-block; width:0px; float:left;"></span>
+												<h5 style="vertical-align: middle;">${listado.nombre}</h5>
+											</div>
+										</t:pagelink>
+										<t:pagelink page="Ropa/VerRopa" context="listado.idRopa">
+											<div class="size_2" style="height:15%;">
+												<span
+													style="height: 100%;  vertical-align: middle; display: inline-block; width:0px; float:left;"></span>
+											</div>
+										</t:pagelink>
+									</div>
+								</div>
+							</div>
+
+							<t:if test="isMultiPaged">
+								<t:tb.pagination />
+							</t:if>
+
+						</t:any>
+
+
+						<div class="clearfix"></div>
+					</div>
+					<!-- end grids_of_4 -->
+				</div>
+
+				<!-- start content -->
+				<div class="clearfix"></div>
+				<!-- end content -->
+			</div>
+		</div>
+
+
+
+	</body>
+		<style>
+.content_box h5 {
+    font-size: 1.1em;
+}
+</style>
+
+	
+</html>

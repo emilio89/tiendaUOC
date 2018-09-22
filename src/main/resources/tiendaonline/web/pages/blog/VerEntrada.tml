@@ -1,0 +1,25 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<script type="text/javascript" src="${context:/js/nicEdit-latest.js}"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+
+
+
+<div class="single_top">
+	 <div class="container"> 
+<h2 style="text-align:center;color: #f54d56;">${titulo}</h2>
+<p style="color:grey">${message:escritoPor}: <b>${usuario} </b> el <t:output format="literal:dd MMM yyyy" value="fechaCreacion"/></p>
+<h4 style="">${resumen}</h4>
+ 
+ <div class="texto">
+ 
+  <t:outputRaw value="texto"/>
+ </div>
+</div>
+</div>
+
+
+
+</html>

@@ -1,0 +1,125 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" t:pageTitle="title" t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+			<form t:type="Form" t:id="registrarRopaForm">
+				<t:errors />
+				<div class="register">
+					<div class="col-md-6 login-right">
+
+						<h3 style="margin-bottom: 30px;">${message:menuExplanation}</h3>
+
+						<div>
+							<span style="float:left;width: 30%;line-height: 35px;">${message:nombre-Label}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="nombre" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+						<div style="margin-top: 100px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:precio-Label}</span>
+							<input style="float:left;width: 40%;vertical-align: center;"
+								t:id="precio" t:type="TextField" t:validate="required" size="16"
+								maxlength="8" />
+						</div>
+
+						<div style="margin-top: 170px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:nombreAdjunto-label}</span>
+							<input
+								style="float:left;width: 40%;vertical-align: center;border: 1px solid #DDDBDB;padding: 5px;"
+								t:type="upload" t:id="file" t:value="file" onClick="fileUpload.showProgress();"
+								 t:validate="required" size="16" maxlength="8" />
+						</div>
+
+						<div style="margin-top: 240px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:marca-Label}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="marca" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+
+					</div>
+
+					<div class="col-md-6 login-right">
+
+						<div style="margin-top: 56px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:descripcion-label}</span>
+							<input style="float:left;width: 40%;" t:id="descripcion"
+								t:type="TextField" t:validate="required" size="16" maxlength="255" />
+						</div>
+
+						<div style="margin-top: 126px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:seleccionaCategoria}</span>
+							<t:select
+								style="float:left;width: 40%;border: 1px solid #DDDBDB;padding: 10px;"
+								t:id="categoria" value="idCategoria" model="categoriaSelectModel" />
+						</div>
+
+
+						<div style="margin-top: 196px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:color-Label}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="color" t:type="TextField" t:validate="required" size="16"
+								maxlength="255" />
+						</div>
+
+						<div style="margin-top: 266px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:numeroTallas}</span>
+
+							<select t:type="select" t:id="numeros" model="prop:numTallasModel"
+								value="numTallas" blankOption="never" zone="tallasZone" />
+
+						</div>
+
+					</div>
+					<div class="clearfix">
+					</div>
+
+				</div>
+
+
+				<div style="width: 100%;margin-left: 0%;" class="col-md-6 login-right">
+
+					<div style="margin-top: 20px;margin-left: 30%;">
+						<h4 style="float:left;margin-top: 10px;">Indique el stock de
+							cada una de las tallas:</h4>
+					</div>
+
+					<t:zone t:id="tallasZone" id="tallasZone" t:update="highlight"
+						style="margin-top: -40px;">
+				&nbsp;
+						<div style="margin-top: calc((70px*${columnIndexMasUno}));"
+							t:type="loop" source="inputNumberList" value="number" index="columnIndex">
+							<span style="float:left;width: 14.5%;line-height: 35px;">Nombre ${message:talla-Label} -
+								${columnIndexMasUno}</span>
+							<input style="float:left;width: 19.5%;" t:id="talla"
+								t:type="TextField" t:validate="required" value="nombreTalla"
+								size="16" maxlength="30" />
+							<span
+								style="float:left;width: 14.5%;line-height: 35px;margin-left: 17.5%;">${message:stock-Label} ${message:talla-Label} -
+								${columnIndexMasUno}</span>
+							<input style="float:left;width: 19.5%;" t:id="stock"
+								t:type="TextField" t:validate="required" value="number" size="16"
+								maxlength="30" />
+						</div>
+
+						<div
+							style="margin-top: calc((70px*${columnIndexMasUno}));margin-left: 35%;">
+							<input type="submit" value="${message:submit}" />
+						</div>
+
+					</t:zone>
+
+
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+
+
+
+</html>

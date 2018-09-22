@@ -1,0 +1,43 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" t:type="Layout" t:pageTitle="title"
+	t:menuExplanation="menuExplanation">
+	<div>
+		<div class="container">
+
+			<div class="register">
+
+				<h3 style="color:#f54d56;">Lista de usuarios</h3>
+				<t:grid source="listaUsuarios"
+					add="regalarPuntos,darPrivilegios,quitarPrivilegios,mandarCorreo"
+					row="UserProfile"
+					exclude="EncryptedPassword,Dni,Telefono,FechaNacimiento,UserProfileId,Localidad,Cp,Provincia,Direccion,Piso,Numero"
+					rowsPerPage="10" class="box-table-a" style="width:95%;">
+					>
+					<p:regalarPuntosCell>
+						<t:pagelink page="User/RegalarPuntos" context="UserProfile.userProfileId">
+							Regalar Puntos</t:pagelink>
+					</p:regalarPuntosCell>
+
+					<p:darPrivilegiosCell>
+						<t:actionlink context="UserProfile.userProfileId"
+							t:id="darPrivilegios"> Dar Privilegios</t:actionlink>
+					</p:darPrivilegiosCell>
+					<p:quitarPrivilegiosCell>
+						<t:actionlink context="UserProfile.userProfileId"
+							t:id="quitarPrivilegios"> Quitar Privilegios</t:actionlink>
+					</p:quitarPrivilegiosCell>
+
+					<p:mandarCorreoCell>
+						<t:pagelink page="User/MandarCorreo" context="UserProfile.userProfileId">
+							Mandar Correo</t:pagelink>
+					</p:mandarCorreoCell>
+
+
+				</t:grid>
+
+			</div>
+		</div>
+	</div>
+
+
+</html>

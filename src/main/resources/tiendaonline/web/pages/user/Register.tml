@@ -1,0 +1,129 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="Layout" t:pageTitle="title" t:menuExplanation="menuExplanation">
+
+	<div class="single_top">
+		<div class="container">
+			<form t:type="Form" t:id="registrationForm">
+				<t:errors />
+				<div class="register">
+					<div class="col-md-6 login-right">
+
+						<h3 style="margin-bottom: 30px;">${message:menuExplanation}</h3>
+
+						<div>
+							<span style="float:left;width: 30%;line-height: 35px;">${message:usuario}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="loginName" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+						<div style="margin-top: 100px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:password}</span>
+							<input
+								style="float:left;width: 40%;border: 1px solid #DDDBDB;padding: 8px; vertical-align: center;"
+								t:id="password" t:type="PasswordField" t:validate="required"
+								size="16" maxlength="8" />
+						</div>
+
+						<div style="margin-top: 170px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:retypePassword-label}</span>
+							<input
+								style="float:left;width: 40%;border: 1px solid #DDDBDB;padding: 8px; vertical-align: center;"
+								t:id="retypePassword" t:type="PasswordField" t:validate="required"
+								size="16" maxlength="8" />
+						</div>
+
+						<div style="margin-top: 240px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:nombre}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="firstName" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+						<div style="margin-top: 310px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:apellidos}</span>
+							<input style="float:left;width: 40%; vertical-align: center;"
+								t:id="lastName" t:type="TextField" t:validate="required" size="16"
+								maxlength="30" />
+						</div>
+
+						<div style="margin-top: 380px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:email}</span>
+							<input style="float:left;width: 40%;" t:id="email" t:type="TextField"
+								t:validate="required,regexp" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 450px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:dni-label}</span>
+							<input style="float:left;width: 40%;" t:id="dni" t:type="TextField"
+								t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 520px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:telefono-label}</span>
+							<input style="float:left;width: 40%;" t:id="telefono"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 590px;margin-left: 80%;">
+							<input type="submit" value="${message:submit}" />
+						</div>
+
+					</div>
+
+					<div class="col-md-6 login-right">
+
+						<div style="margin-top: 56px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:fechaNacimiento-Label}</span>
+							<input style="float:left;width: 40%;" t:type="datefield"
+								value="ejemploDate" t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 47px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:localidad}</span>
+							<input style="float:left;width: 40%;" t:id="localidad"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 117px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:cp}</span>
+							<input style="float:left;width: 40%;" t:id="cp" t:type="TextField"
+								t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 187px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:provincia}</span>
+							<input style="float:left;width: 40%;" t:id="provincia"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 257px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:direccion}</span>
+							<input style="float:left;width: 40%;" t:id="direccion"
+								t:type="TextField" t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 327px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:piso}</span>
+							<input style="float:left;width: 40%;" t:id="piso" t:type="TextField"
+								t:validate="required" size="16" maxlength="30" />
+						</div>
+
+						<div style="margin-top: 397px;">
+							<span style="float:left;width: 30%;line-height: 35px;">${message:numero}</span>
+							<input style="float:left;width: 40%;" t:id="numero" t:type="TextField"
+								t:validate="required" size="16" maxlength="30" />
+						</div>
+
+					</div>
+					<div class="clearfix">
+					</div>
+
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+
+</html>
